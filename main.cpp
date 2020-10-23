@@ -1,7 +1,6 @@
 #define CATCH_CONFIG_MAIN
-#include "catch.hpp"
-
-#include "datastructure/header/Queue.h"
+#include "TestingUtils/catch.hpp"
+#include "DataStructure/header/Queue.h"
 #include <iostream>
 
 TEST_CASE("Testing Queue Size", "[Queue Size]")
@@ -15,18 +14,6 @@ TEST_CASE("Testing Queue Size", "[Queue Size]")
 
         Queue<uint64_t> q3;
         REQUIRE(q3.GetSize() == 0);
-    }
-
-
-    SECTION("Invalid size Queue Test") {
-        try {
-            Queue<uint64_t> q1(-1);
-            REQUIRE(false);
-        }
-        catch (std::exception const &e) {
-            printf("Caught an exception - %s\n", e.what());
-            REQUIRE(true);
-        }
     }
 
     SECTION("Exceed maximum Queue Test") {
