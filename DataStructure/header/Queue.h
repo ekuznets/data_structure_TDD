@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <exception>
 #include <sstream>
+#include "../../HelperLib/MathUtils.h"
 
 // forward declaration is not possible here, since class is using a complete type of this object
 struct SizeException : std::exception
@@ -165,7 +166,7 @@ private:
 
         T* newDataSpace = new T[memAllocSize];
         // copy the data out
-        if(m_capacity > 0)
+        if(m_size > 0 && m_data != nullptr)
         {
             memcpy(newDataSpace, m_data, m_size * sizeof(T));
             delete [] m_data;

@@ -1,2 +1,4 @@
 # add all the DataStructure files here that I will be including
-add_library(DataStructureLib header/Queue.h source/Queue.cpp)
+#add_library(Queue STATIC
+#        header/Queue.h
+#        source/Queue.cpp)

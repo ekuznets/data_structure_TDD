@@ -1,19 +1,8 @@
 //
-// Created by eugene on 2020-10-22.
+// Created by eugene on 2020-10-23.
 //
 
-extern inline uint32_t GetNextPowerOfTwo(uint32_t value)
-{
-    if(value == 0)
-        return 0;
+#pragma once
 
-    for(int i=0; i<=32; i++)
-    {
-        if((1<<i) >= value)
-            return 1<<i;
-    }
-
-    // should never happen
-    assert(false);
-    return 0;
-}
+#include <inttypes.h>
+extern uint32_t GetNextPowerOfTwo(uint32_t value);
