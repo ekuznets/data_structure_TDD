@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -dynamiclib -Wl,-headerpad_max_install_names  -o libMathUtils.dylib -install_name @rpath/libMathUtils.dylib CMakeFiles/MathUtils.dir/MathUtils.cpp.o 
