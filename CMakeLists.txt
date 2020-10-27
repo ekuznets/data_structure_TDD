@@ -1,5 +1,16 @@
 cmake_minimum_required(VERSION 3.16)
 
+message("${CMAKE_BINARY_DIR}")
+message("${CMAKE_SOURCE_DIR}")
+
+if(${CMAKE_BINARY_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
+    message(FATAL_ERROR
+        "In-source Builds are not allowed
+        Please run:
+        rm -rf CMakeCache.txt CMakeFiles
+        then create a build/ directory and retry")
+endif()
+
 # my project name
 project(DataStructures VERSION 0.0.1 LANGUAGES CXX)
 
