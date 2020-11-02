@@ -24,16 +24,17 @@ add_subdirectory("DataStructure")
 add_subdirectory("HelperLib")
 
 # Headers cannot be libraries, so I will have to refactor where possible
-add_executable(QueueTest main.cpp TestingUtils/catch.hpp DataStructure/header/Queue.h)
+set(projectName QueueTest.elf)
+add_executable(${projectName} main.cpp TestingUtils/catch.hpp DataStructure/header/Queue.h)
 
 # get info about lib
 include(TestingUtils/info.cmake)
 PrintInfo()
 
-target_link_libraries(QueueTest
-        PRIVATE MathUtils)
+target_link_libraries(${projectName}
+        PUBLIC MathUtils)
 
-target_compile_options(QueueTest PRIVATE -Wall -Werror -pedantic -Wsign-conversion -Wconversion) # -Wextra
+target_compile_options(${projectName} PRIVATE -Wall -Werror -pedantic -Wsign-conversion -Wconversion) # -Wextra
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/build)
 

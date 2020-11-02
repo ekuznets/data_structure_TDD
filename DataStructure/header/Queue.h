@@ -70,27 +70,27 @@ public:
     Queue(Queue const& copyQueue)
     {
         printf("Queue, Copy Constructor is called\n");
+        if(copyQueue.m_capacity > 0) {
+            Allocate_(copyQueue.m_size);
+        }
         m_size = copyQueue.m_size;
         m_capacity = copyQueue.m_capacity;
-        if(m_capacity > 0) {
-            Allocate_(m_capacity);
-        }
     }
 
     // construct from static array
     Queue(T fromArray[], uint32_t size)
     {
         printf("Queue, Static array constructor\n");
+        Allocate_(size);
         m_size = size;
-        Allocate_(m_size);
     }
 
     // construct from dynamic array
     Queue(const T* const fromArray, uint32_t size)
     {
         printf("Queue, Dynamic array constructor\n");
+        Allocate_(size);
         m_size = size;
-        Allocate_(m_size);
     }
 
     ~Queue()
