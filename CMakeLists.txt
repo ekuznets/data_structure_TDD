@@ -1,8 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
 
-message("${CMAKE_BINARY_DIR}")
-message("${CMAKE_SOURCE_DIR}")
-
 if(${CMAKE_BINARY_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
     message(FATAL_ERROR
         "In-source Builds are not allowed
@@ -20,28 +17,20 @@ set(CMAKE_CXX_STANDARD 17)
 add_subdirectory("TestingUtils")
 # implementation of the Queue data structure
 add_subdirectory("DataStructure")
-# A math Utility Lib that I want to link as .so file
-add_subdirectory("HelperLib")
 
 # Headers cannot be libraries, so I will have to refactor where possible
 set(projectName QueueTest.elf)
-add_executable(${projectName} main.cpp TestingUtils/catch.hpp DataStructure/header/Queue.h)
+add_executable(${projectName} main.cpp TestingUtils/catch.hpp)
 
 # get info about lib
 include(TestingUtils/info.cmake)
 PrintInfo()
 
-target_link_libraries(${projectName}
-        PUBLIC MathUtils)
+# A math Utility Lib that I want to link as .so file
+target_link_libraries(${projectName} ${CMAKE_SOURCE_DIR}/res/libMathUtils.so QueueDT)
 
 target_compile_options(${projectName} PRIVATE -Wall -Werror -pedantic -Wsign-conversion -Wconversion) # -Wextra
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/build)
 
 message("Done")
-
-
-
-
-
-

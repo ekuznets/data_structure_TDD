@@ -1,7 +1,8 @@
 #define CATCH_CONFIG_MAIN
 #include "TestingUtils/catch.hpp"
 #include "DataStructure/header/Queue.h"
-#include "HelperLib/MathUtils.h"
+#include "DataStructure/source/Queue.cpp"
+#include "res/MathUtils.h"
 #include <iostream>
 
 TEST_CASE("Testing Queue Size", "[Queue Size]")

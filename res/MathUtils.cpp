@@ -6,8 +6,8 @@
 #include <inttypes.h>
 #include <cassert>
 
-// g++ -c MathUtils.cpp
-// g++ -shared -o MathUtils.so MathUtils.o
+// g++ -c MathUtils.not_used_cpp
+// g++ -shared -o libMathUtils.so MathUtils.o
 
 extern uint32_t GetNextPowerOfTwo(uint32_t value)
 {
